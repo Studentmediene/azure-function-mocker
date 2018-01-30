@@ -1,0 +1,30 @@
+{
+  "name": "azure-function-mocker",
+  "version": "0.0.1",
+  "description": "Mocking service for Azure Functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Studentmediene/azure-function-mocker.git"
+  },
+  "keywords": [
+    "azure",
+    "test",
+    "mocking",
+    "smint"
+  ],
+  "author": "Fredrik F. Lindhagen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Studentmediene/azure-function-mocker/issues"
+  },
+  "homepage": "https://github.com/Studentmediene/azure-function-mocker#readme",
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "husky": "^0.14.3",
+    "jest": "^22.1.4"
+  }
+}
