@@ -1,0 +1,31 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+      "no-var-requires": true,
+      "prefer-for-of": true,
+      "curly": true,
+      "no-console": [true, "log"],
+      "no-eval": true,
+      "no-misused-new": true,
+      "no-string-throw": true,
+      "quotemark": [true, "single"],
+      "interface-name": [true, "never-prefix"]
+    },
+    "rulesDirectory": [],
+    "ban": [
+      true,
+      "eval",
+      {"name": "$", "message": "please don't"},
+      ["describe", "only"],
+      {"name": ["it", "only"], "message": "don't focus tests"},
+      {
+        "name": ["chai", "assert", "equal"],
+        "message": "Use 'strictEqual' instead."
+      },
+      {"name": ["*", "forEach"], "message": "Use a regular for loop instead."}
+    ]
+}
