@@ -30,14 +30,14 @@ describe('mockRequest()', () => {
     expect(typeof headers).toBe('object');
   });
 
-  it('Uses default `method` GET when not nspecified', () => {
+  it('Uses default `method` GET when not specified', () => {
     const req = mockRequest();
 
     expect(req.method).toBeTruthy();
     expect(req.method).toEqual('GET');
   });
 
-  it('Contains empty `query` when not specified', () => {
+  it('Contains empty query when not specified', () => {
     expect(mockRequest().query).toEqual({});
   });
 

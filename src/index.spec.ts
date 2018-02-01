@@ -1,6 +1,6 @@
 import { FunctionMocker, mockContext, mockRequest } from './index';
 
-describe('testUtils', () => {
+describe('azure-function-mocker', () => {
 
   it('Loads mockContext properly', async () => {
     expect(mockContext).toBeTruthy();
