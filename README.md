@@ -39,7 +39,89 @@ const req = mockRequest('POST'); // or 'PUT', 'PATCH', 'HEAD', 'OPTION', ...
 ```
 
 ### Function Mocker
+Creates a mocked environment for which the function can run in. 
+Simply said appends a mocked context to the first function parameter, and returns the updated context when the function has completed.
 
+#### Examples
+
+##### Simple HttpTriggered function
+The most simple use-case to mock a function. 
+`getHelloWorld` takes no other arguments than the required `context`-argument,
+and returns a simple HTTP 200 response with the body `{ message: 'Hello world' }`
+
+```js
+const { FunctionMocker } = require('azure-function-mocker');
+
+function getHelloWorld(context) {
+    context.res = {
+        status: 200,
+        body: { message: 'Hello world' }
+    };
+    context.done();
+}
+
+const func = new FunctionMocker(getHelloWorld);
+
+const ctx = await func.run();
+
+console.log(ctx.res.status); // 200
+console.log(ctx.res.body); // { message: 'Hello world' }
+```
+
+##### HttpTriggered function with request object
+A more complex version of the previous example, but yet quite simple.
+
+```js
+const { FunctionMocker, mockRequest } = require('azure-function-mocker');
+
+function postHelloWorld(context, req) {
+    if (!req.params.name) {
+        context.res = {
+            status: 400,
+            body: { error: 'Missing name!' }
+        };
+    } else {
+        context.res = {
+            status: 200,
+            body: { message: `Hello ${req.params.name}`}
+        };
+    }
+
+    context.done();
+}
+
+const req = mockRequest('POST', { name: 'Jon Snow' }); // Mocks a request with a POST-body
+
+const func = new FunctionMocker(postHelloWorld);
+
+const ctx = await func.run(req);
+
+console.log(ctx.res.body); // { messsage: 'Hello Jon Snow' }
+```
+
+##### HttpTriggered function returning a Promise
+An Azure Function also supports ending the function through `Promise.resolve()`.
+We will in this example use `async/await`, as it saves us syntax-space, the function will 
+in reality return a promise (see ES2017 spec for more details).
+
+```js
+const { FunctionMocker } = require('azure-function-mocker');
+
+async function getHelloWorld(context) {
+    context.res = {
+        status: 200,
+        body: { message: 'Hello Async World' }
+    };
+}
+
+const func = new FunctionMocker(getHelloWorld);
+
+const ctx = await func.run();
+
+console.log(ctx.res.body); // { message: 'Hello Async World' }
+```
+
+As we see, there is no practical difference for the `FunctionMocker`, and what your output after `func.run()` is.
 
 ### Context Mocker
 
