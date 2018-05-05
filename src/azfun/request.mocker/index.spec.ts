@@ -1,6 +1,6 @@
 import { mockRequest } from './index';
 
-describe('mockRequest()', () => {
+describe('mockRequest', () => {
   it('contains required keys', () => {
     const {
       method,

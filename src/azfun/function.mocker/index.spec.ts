@@ -1,14 +1,16 @@
-import { FunctionMocker, mockRequest } from '../index';
+import { mockContext, MockedContext } from '../context.mocker';
+import { MockedRequest, mockRequest } from '../request.mocker';
+import FunctionMocker from './index';
 
 describe('FunctionMocker', () => {
   const genericFunc = (context) => context.done();
 
   /**
    * Dies if Request-object is missing, resolves if not
-   * @param {Context} context
-   * @param {Request} req
+   * @param context
+   * @param req
    */
-  const httpFuncWithReq = (context, req) => {
+  const httpFuncWithReq = (context: MockedContext, req: MockedRequest) => {
     if (!req) { throw new Error('Cannot find Request Object'); }
 
     context.res = { status: 200, body: { message: 'Success' } };

@@ -1,6 +1,6 @@
 import { mockContext } from './index';
 
-describe('mockContext()', () => {
+describe('mockContext', () => {
   it('Calls `handler` when `done` is called', () => {
     const handler = () => expect(true); // Test passes if handler is called
 

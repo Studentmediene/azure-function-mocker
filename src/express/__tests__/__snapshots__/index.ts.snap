@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MiddlewareMocker.run should give fitting error message if request param is missing 1`] = `[ReferenceError: Missing required parameter \`req\`]`;
+
+exports[`MiddlewareMocker.run should give fitting error message if response param is missing 1`] = `[ReferenceError: Missing required parameter \`res\`]`;
