@@ -1,6 +1,7 @@
 
 export class ContextHandlerFunction extends Function {}
 
+/* istanbul ignore next */
 export interface MockedContext {
   bindings: object;
   // tslint:disable-next-line
@@ -29,9 +30,10 @@ export const mockContext: any = (handler: ContextHandlerFunction) => {
         res: this.res,
       });
     },
-    // @todo:ffl - Find way to implement support for both
+    // TODO:ffl - Find way to implement support for both
     //             context.log() and context.log.info()
     log: {
+      /* istanbul ignore next */
       error: function error(str: string) {
         // tslint:disable-next-line:no-console
         console.error(str);

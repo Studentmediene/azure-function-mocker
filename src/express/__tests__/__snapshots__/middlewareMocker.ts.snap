@@ -2,4 +2,6 @@
 
 exports[`MiddlewareMocker.run should give fitting error message if request param is missing 1`] = `[ReferenceError: Missing required parameter \`req\`]`;
 
+exports[`MiddlewareMocker.run should give fitting error message if response is not instance of MockedResponse 1`] = `[TypeError: Expected parameter 'res' to be of type MockedResponse, instead got: function Object() { [native code] }]`;
+
 exports[`MiddlewareMocker.run should give fitting error message if response param is missing 1`] = `[ReferenceError: Missing required parameter \`res\`]`;

@@ -34,7 +34,7 @@ export default class MiddlewareMocker {
       return Promise.reject(
         new TypeError(`Expected parameter 'res' to be of type MockedResponse, instead got: ${res.constructor}`),
       );
-    }
+    } /*istanbul ignore next*/
 
     return new Promise((rsv, rr) => {
       const nextCalledHandler = this._mockNext((err?: Error) => {
@@ -47,9 +47,10 @@ export default class MiddlewareMocker {
 
       res.send = this._mockNext(() => rsv({ req, res }));
 
+      /*istanbul ignore next*/
       try {
         this.middleware(req, res, nextCalledHandler);
-      } catch (e) {
+      } catch (e) { /*istanbul ignore next*/
         return rr(e);
       }
     });
@@ -57,7 +58,7 @@ export default class MiddlewareMocker {
 
   private _mockSend(cb: () => void, res: MockedResponse): (body: any) => void {
     return (body: any): void => {
-      res._data = body;
+      res.data = body;
       cb();
     };
   }

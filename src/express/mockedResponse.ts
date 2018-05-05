@@ -1,7 +1,7 @@
 export default class MockedResponse {
   public data: any = null;
-  public code: number = 500;
-  public header: any = {
+  public code: number = 200;
+  public headers: any = {
     'content-type': 'application/json',
   };
 
@@ -9,7 +9,7 @@ export default class MockedResponse {
     this.data = data;
 
     if (typeof data === 'object') {
-      this.header['content-type'] = 'application/json';
+      this.headers['content-type'] = 'application/json';
     }
   }
 

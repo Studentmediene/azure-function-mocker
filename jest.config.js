@@ -20,6 +20,12 @@ module.exports = {
       functions: 80,
       lines: 80,
       statements: -20
+    },
+    './src/azfun/contextMocker.ts': {
+      branches: 30,
+      functions: 46,
+      lines: 67,
+      statemtents: -40
     }
   }
 };
