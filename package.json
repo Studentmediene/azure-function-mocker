@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Studentmediene/azure-function-mocker.git"
+    "url": "git+https://github.com/Studentmediene/sm-js-test-utils.git"
   },
   "keywords": [
     "azure",
