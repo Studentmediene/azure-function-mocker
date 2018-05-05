@@ -1,4 +1,4 @@
-import { mockContext, MockedContext } from '../context.mocker';
+import { mockContext, MockedContext } from './contextMocker';
 
 /**
  * Mocks Azure functions locally, with the most common input and output bindigs,

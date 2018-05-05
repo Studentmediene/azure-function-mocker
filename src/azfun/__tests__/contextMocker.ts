@@ -1,4 +1,4 @@
-import { mockContext } from './index';
+import { mockContext } from '../contextMocker';
 
 describe('mockContext', () => {
   it('Calls `handler` when `done` is called', () => {
@@ -8,7 +8,7 @@ describe('mockContext', () => {
   });
 
   it('Calls `handler` with context as argument', () => {
-    const handler = (ctx) => expect(ctx).toBeTruthy();
+    const handler = (ctx: any) => expect(ctx).toBeTruthy();
 
     mockContext(handler).done();
   });

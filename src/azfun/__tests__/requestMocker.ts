@@ -1,4 +1,4 @@
-import { mockRequest } from './index';
+import { mockRequest } from '../requestMocker';
 
 describe('mockRequest', () => {
   it('contains required keys', () => {

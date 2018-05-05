@@ -12,5 +12,14 @@ module.exports = {
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest" // Converts typscript to js before test-run
   },
-  testMatch: [ '**/__tests__/**/*.(ts|js)?(x)', '**/?(*.)(spec|test).(ts|js)?(x)' ]
+  testMatch: [ '**/__tests__/**/*.(ts|js)?(x)', '**/?(*.)(spec|test).(ts|js)?(x)' ],
+
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: -20
+    }
+  }
 };
