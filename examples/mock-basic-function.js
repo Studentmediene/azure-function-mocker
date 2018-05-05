@@ -1,4 +1,4 @@
-const { FunctionMocker, mockRequest } = require('../dist'); // Replace with 'azure-function-mocker'
+const { FunctionMocker, mockRequest } = require('../dist').azfun; // Replace with 'sm-js-test-utils'ø
 
 const mockedFunc = new FunctionMocker((context, req) => {
   if (req.headers['content-type'] !== 'application/json') {
