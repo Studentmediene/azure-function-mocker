@@ -23,22 +23,20 @@
     "mocking",
     "smint"
   ],
-  "author": "Fredrik F. Lindhagen",
+  "author": "Studentmediene i Trondheim",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Studentmediene/azure-function-mocker/issues"
+    "url": "https://github.com/Studentmediene/sm-js-test-utils/issues"
   },
-  "homepage": "https://github.com/Studentmediene/azure-function-mocker#readme",
+  "homepage": "https://github.com/Studentmediene/sm-js-test-utils#readme",
   "devDependencies": {
-    "@types/jest": "^22.1.1",
-    "@types/node": "^9.4.0",
+    "@types/jest": "^22.2.3",
+    "@types/node": "^9.6.12",
     "husky": "^0.14.3",
-    "jest": "^22.1.4",
-    "ts-jest": "^22.0.2",
-    "tslint": "^5.9.1",
-    "typescript": "^2.6.2"
-  },
-  "dependencies": {
-    "tslint-config-airbnb": "^5.8.0"
+    "jest": "^22.4.3",
+    "ts-jest": "^22.4.5",
+    "tslint": "^5.10.0",
+    "tslint-config-airbnb": "^5.8.0",
+    "typescript": "^2.8.3"
   }
 }

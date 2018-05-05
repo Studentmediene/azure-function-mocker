@@ -31,9 +31,10 @@ export default class MiddlewareMocker {
     }
 
     if (!(res instanceof MockedResponse)) {
+      const type = (res as any).constructor;
       return Promise.reject(
         // tslint:disable-next-line
-        new TypeError(`Expected parameter 'res' to be of type MockedResponse, instead got: ${res.constructor}`),
+        new TypeError(`Expected parameter 'res' to be of type MockedResponse, instead got: ${type}`),
       );
     } /*istanbul ignore next*/
 
