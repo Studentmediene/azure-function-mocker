@@ -1,4 +1,4 @@
-import MockedResponse from './mockedResponse';
+import MockedResponse from './MockedResponse';
 
 /**
  * Mocks middlewares and presents it in a Promise
@@ -32,12 +32,13 @@ export default class MiddlewareMocker {
 
     if (!(res instanceof MockedResponse)) {
       return Promise.reject(
+        // tslint:disable-next-line
         new TypeError(`Expected parameter 'res' to be of type MockedResponse, instead got: ${res.constructor}`),
       );
     } /*istanbul ignore next*/
 
     return new Promise((rsv, rr) => {
-      const nextCalledHandler = this._mockNext((err?: Error) => {
+      const nextCalledHandler = this.mockNext((err?: Error) => {
         if (err) {
           return rr(err);
         }
@@ -45,7 +46,7 @@ export default class MiddlewareMocker {
         return rsv({ req, res });
       });
 
-      res.send = this._mockNext(() => rsv({ req, res }));
+      res.send = this.mockNext(() => rsv({ req, res }));
 
       /*istanbul ignore next*/
       try {
@@ -56,7 +57,7 @@ export default class MiddlewareMocker {
     });
   }
 
-  private _mockSend(cb: () => void, res: MockedResponse): (body: any) => void {
+  private mockSend(cb: () => void, res: MockedResponse): (body: any) => void {
     return (body: any): void => {
       res.data = body;
       cb();
@@ -69,7 +70,7 @@ export default class MiddlewareMocker {
    * @param {Function} callback Callback function of type (err = null) => void
    * @return {Function} next
    */
-  private _mockNext(callback: (err?: Error) => any) {
+  private mockNext(callback: (err?: Error) => any) {
     return (err?: Error) => {
       callback(err);
     };

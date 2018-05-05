@@ -5,11 +5,11 @@
  * @author Fredrik F. Lindhagen
  */
 import { mockContext } from './azfun/contextMocker';
-import FunctionMocker from './azfun/functionMocker';
+import FunctionMocker from './azfun/FunctionMocker';
 import { mockRequest } from './azfun/requestMocker';
 
-import MiddlewareMocker from './express/middlewareMocker';
-import MockedResponse from './express/mockedResponse';
+import MiddlewareMocker from './express/MiddlewareMocker';
+import MockedResponse from './express/MockedResponse';
 
 export const azfun = {
   FunctionMocker,

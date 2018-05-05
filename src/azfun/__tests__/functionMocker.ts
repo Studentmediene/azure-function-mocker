@@ -1,5 +1,5 @@
 import { mockContext, MockedContext } from '../contextMocker';
-import FunctionMocker from '../functionMocker';
+import FunctionMocker from '../FunctionMocker';
 import { MockedRequest, mockRequest } from '../requestMocker';
 
 describe('FunctionMocker', () => {

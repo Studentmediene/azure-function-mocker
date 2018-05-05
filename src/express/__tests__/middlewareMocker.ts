@@ -1,5 +1,5 @@
-import MiddlewareMocker from '../middlewareMocker';
-import MockedResponse from '../mockedResponse';
+import MiddlewareMocker from '../MiddlewareMocker';
+import MockedResponse from '../MockedResponse';
 
 describe('MiddlewareMocker', () => {
   let mockedSimpleMiddleware: (req: any, res: any, next: any) => any;
@@ -54,9 +54,12 @@ describe('MiddlewareMocker.run', () => {
 
   it('should throw TypeError if response is not instance of MockedResponse', async () => {
     // Ignore complaint about type here, we still need the test
-    await expect(mockedMiddleware.run(mockedRequest, { test: 'test' })).rejects.toBeInstanceOf(TypeError);
+    await expect(mockedMiddleware.run(mockedRequest, { test: 'test' }))
+      .rejects
+      .toBeInstanceOf(TypeError);
   });
 
+  // tslint:disable-next-line
   it('should give fitting error message if response is not instance of MockedResponse', async () => {
     // Ignore complaint about type here, we still need the test
     await expect(mockedMiddleware.run(mockedRequest, { test: 'test' })).rejects.toMatchSnapshot();

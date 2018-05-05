@@ -1,4 +1,4 @@
-import MockedResponse from '../mockedResponse';
+import MockedResponse from '../MockedResponse';
 
 describe('MockedResponse', () => {
   let res: MockedResponse;
